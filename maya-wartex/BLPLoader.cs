@@ -38,7 +38,7 @@ namespace WarTex
             {
                 CreateImage(image);
             }
-            catch( Exception ex )
+            catch (Exception ex)
             {
                 MGlobal.displayError($"Error while loading BLP file {_path}\r\n\t{ex}");
             }
@@ -92,10 +92,10 @@ namespace WarTex
                 {
                     Buffer.MemoryCopy(src, dst, expectedSize, expectedSize);
                 }
-                
-                // Flip Y
-                image.verticalFlip();
             }
+
+            // Flip Y
+            image.verticalFlip();
         }
     };
 }
