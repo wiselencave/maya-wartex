@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>WarTex</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <AssemblyName>wartex</AssemblyName>
+	<Company>wiselen</Company>
+	<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="War3Net.Drawing.Blp" Version="5.9.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="openmayacs">
+      <HintPath>F:\Autodesk\Maya 2025\Maya2025\bin\openmayacs.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="set MAYA_PLUGINS=F:\Autodesk\Maya 2025\Maya2025\bin\plug-ins&#xA;&#xA;copy /Y &quot;$(TargetDir)wartex.dll&quot; &quot;%25MAYA_PLUGINS%25\wartex.nll.dll&quot;&#xA;&#xA;for %25%25F in (&#xA;    JpegLibrary.dll&#xA;    War3Net.Common.dll&#xA;    War3Net.Drawing.Blp.dll&#xA;) do (&#xA;    copy /Y &quot;$(TargetDir)%25%25F&quot; &quot;%25MAYA_PLUGINS%25\%25%25F&quot;&#xA;)&#xA;" />
+  </Target>
+
+</Project>
