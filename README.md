@@ -18,7 +18,10 @@ The project also demonstrates how image file extensions can be registered in May
 Maya does not provide a public API for this in `MPxImageFile`, so a MEL-based workaround is required.
 
 ## Target DCC
-Made for .NET 8 compatible versions of Maya (Maya 2025 or later), Windows only.
+Made for `.NET 8` compatible versions of Maya (Maya 2025 or later), Windows only.
+
+For Maya 2024 and earlier, plugin requires a BLP reader library compatible with `.NET Framework 4.8`.
+The image format integration code remains relevant for these versions, but adjustments to syntax may be necessary.
 
 ## Dependencies 
 - [War3Net.Drawing.Blp](https://github.com/Drake53/War3Net/tree/master/src/War3Net.Drawing.Blp) by Drake53. Used as a NuGet package for reading and decoding BLP textures.

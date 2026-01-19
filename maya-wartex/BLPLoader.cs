@@ -70,7 +70,7 @@ namespace WarTex
 
         private void CreateImage(MImage image)
         {
-            if (String.IsNullOrEmpty(_path))
+            if (string.IsNullOrEmpty(_path))
                 return;
 
             using var fs = File.OpenRead(_path);
