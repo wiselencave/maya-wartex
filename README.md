@@ -23,6 +23,11 @@ Made for `.NET 8` compatible versions of Maya (Maya 2025 or later), Windows only
 For Maya 2024 and earlier, plugin requires a BLP reader library compatible with `.NET Framework 4.8`.
 The image format integration code remains relevant for these versions, but adjustments to syntax may be necessary.
 
+## Installation
+1. Download a build for your version of Maya from the [releases](https://github.com/wiselencave/maya-wartex/releases) page, or build it yourself using the [dependencies](#dependencies). 
+2. Copy all `dll` files to `...\Maya202x\bin\plug-ins`.
+3. Start Maya and load the plug-in using the MEL command `loadPlugin -qt wartex.nll.dll`, or open the `Windows -> Plug-in Manager` menu, find `wartex.nll.dll`, and check both `Loaded` and `Auto load`.
+
 ## Dependencies 
 - [War3Net.Drawing.Blp](https://github.com/Drake53/War3Net/tree/master/src/War3Net.Drawing.Blp) by Drake53. Used as a NuGet package for reading and decoding BLP textures.
 - `openmayacs.dll`. Maya .NET API assembly provided with Autodesk Maya.
