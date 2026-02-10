@@ -10,7 +10,10 @@ namespace WarTex
     {
         private const uint ChannelsNumber = 4;
         private const bool HasAlpha = true;
+
         private const MImage.MPixelType PixelType = MImage.MPixelType.kByte;
+        private const MImageFileInfo.MImageType ImageType = MImageFileInfo.MImageType.kImageTypeColor;
+        private const MImageFileInfo.MHwTextureType TextureType = MImageFileInfo.MHwTextureType.kHwTexture2D;
 
         private string? _path;
         public override void open(string pathname, MImageFileInfo info)
@@ -61,7 +64,8 @@ namespace WarTex
             info.hasAlpha = HasAlpha;
 
             info.pixelType = PixelType;
-            info.imageType = MImageFileInfo.MImageType.kImageTypeColor;
+            info.imageType = ImageType;
+            info.hardwareType = TextureType;
             info.numberOfImages = 1;
 
             // BLP typically has mipmaps, but for Maya it is GPU loading (glLoad()) feature only
