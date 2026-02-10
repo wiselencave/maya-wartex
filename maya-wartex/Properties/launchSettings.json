@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Run Maya 2k25": {
+      "commandName": "Executable",
+      "executablePath": "F:\\Autodesk\\Maya 2025\\Maya2025\\bin\\maya.exe",
+      "workingDirectory": "F:\\Autodesk\\Maya 2025\\Maya2025\\bin",
+      "nativeDebugging": true
+    }
+  }
+}

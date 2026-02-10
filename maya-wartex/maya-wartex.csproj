@@ -25,4 +25,10 @@
     <Exec Command="set MAYA_PLUGINS=F:\Autodesk\Maya 2025\Maya2025\bin\plug-ins&#xA;&#xA;copy /Y &quot;$(TargetDir)wartex.dll&quot; &quot;%25MAYA_PLUGINS%25\wartex.nll.dll&quot;&#xA;&#xA;for %25%25F in (&#xA;    JpegLibrary.dll&#xA;    War3Net.Common.dll&#xA;    War3Net.Drawing.Blp.dll&#xA;) do (&#xA;    copy /Y &quot;$(TargetDir)%25%25F&quot; &quot;%25MAYA_PLUGINS%25\%25%25F&quot;&#xA;)&#xA;" />
   </Target>
 
+	<Target Name="PackRelease" AfterTargets="Build">
+		<Exec Command="copy /Y &quot;$(TargetDir)wartex.dll&quot; &quot;$(TargetDir)wartex.nll.dll&quot;" />
+		<Exec Command="powershell -Command &quot;if (Test-Path '$(TargetDir)wartex-release.zip') { Remove-Item '$(TargetDir)wartex-release.zip' }&quot;" />
+		<Exec Command="powershell -Command &quot;Compress-Archive -Path &quot;$(TargetDir)wartex.nll.dll&quot;, &quot;$(TargetDir)JpegLibrary.dll&quot;, &quot;$(TargetDir)War3Net.Common.dll&quot;, &quot;$(TargetDir)War3Net.Drawing.Blp.dll&quot; -DestinationPath &quot;$(TargetDir)wartex-release.zip&quot; -Force&quot;" />
+	</Target>
+
 </Project>
